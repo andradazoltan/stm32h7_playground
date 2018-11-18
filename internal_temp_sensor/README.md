@@ -10,9 +10,9 @@ In anticipation of optimizing for power in the future, a clock of under 20MHz wa
 ![Clock_Config](ADC_clock_settings.png)
 
 ### ADC Sampling Time
-The second important setting is the frequency of sampling of the ADC. This frequency must cannot exceed the specified temperature sampling time of 9µs listed in the [datasheet](https://www.st.com/resource/en/datasheet/stm32h743vi.pdf#page=170). Thus the maximum sampling frequency can be:
+The second important setting is the frequency of sampling of the ADC. This frequency cannot exceed the specified temperature sampling time of 9Âµs listed in the [datasheet](https://www.st.com/resource/en/datasheet/stm32h743vi.pdf#page=170). Thus the minimum sampling frequency can be:
 
-`9µs * 17.2MHz = 154.8 Clock Cycles`
+`9Âµs * 17.2MHz = 154.8 Clock Cycles`
 
 From the provided options in the ADC HAL library a value of 387.5 cycles was used (`ADC_SAMPLETIME_387CYCLES_5`).
 
