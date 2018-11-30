@@ -18,13 +18,13 @@ Hardware used:
 
 ## CAN Initialization Settings
 The biggest catch to working with the CAN peripheral is configuring its large amount of settings. The important settings for this example are:
-* **`hfdcan1.Init.Mode`**: Not doing anything fancy, just set to `FDCAN_MODE_NORMAL`. 
-* **`hfdcan1.Init.StdFiltersNbr`**: Defines the number of standard message ID filters that the RX handler will choose to accept. Set to 1 for this example, because we are only transmitting one type of message.
-* **`hfdcan1.Init.RxFifo1ElmtsNbr`**: Specifies the number of elements that the RX FIFO1 can hold. Set to 1, because one message is transmitted at a time.
-* **`hfdcan1.Init.RxFifo1ElmtsSize`**: Specifies the data size of the message stored in the RX FIFO1.
-* **`hfdcan1.Init.TxFifoQueueElmtsNbr`**: Specifies the number of TX buffers used for the FIFO. To use the FIFO capability, this setting must be set to at least 1 according to page 2451 of the [reference manual](https://www.st.com/content/ccc/resource/technical/document/reference_manual/group0/c9/a3/76/fa/55/46/45/fa/DM00314099/files/DM00314099.pdf/jcr:content/translations/en.DM00314099.pdf#page=2451).
-* **`hfdcan1.Init.TxFifoQueueMode`**: Specifies if the FIFO or the queue will be used for TX transactions. This example uses the FIFO, so this setting is set to `FDCAN_TX_FIFO_OPERATION`.
-* **`hfdcan1.Init.TxElmtSize`**: Specifies the data size of the messages to transmit.
+* **`hfdcan2.Init.Mode`**: Not doing anything fancy, just set to `FDCAN_MODE_NORMAL`. 
+* **`hfdcan2.Init.StdFiltersNbr`**: Defines the number of standard message ID filters that the RX handler will choose to accept. Set to 1 for this example, because we are only transmitting one type of message.
+* **`hfdcan2.Init.RxFifo1ElmtsNbr`**: Specifies the number of elements that the RX FIFO1 can hold. Set to 1, because one message is transmitted at a time.
+* **`hfdcan2.Init.RxFifo1ElmtsSize`**: Specifies the data size of the message stored in the RX FIFO1.
+* **`hfdcan2.Init.TxFifoQueueElmtsNbr`**: Specifies the number of TX buffers used for the FIFO. To use the FIFO capability, this setting must be set to at least 1 according to page 2451 of the [reference manual](https://www.st.com/content/ccc/resource/technical/document/reference_manual/group0/c9/a3/76/fa/55/46/45/fa/DM00314099/files/DM00314099.pdf/jcr:content/translations/en.DM00314099.pdf#page=2451).
+* **`hfdcan2.Init.TxFifoQueueMode`**: Specifies if the FIFO or the queue will be used for TX transactions. This example uses the FIFO, so this setting is set to `FDCAN_TX_FIFO_OPERATION`.
+* **`hfdcan2.Init.TxElmtSize`**: Specifies the data size of the messages to transmit.
 
 ## TX Header Configuration
 Prior to transmitting the first message, a TX Header must be initialized and configured. This header is passed to any of the transmit functions and defines the format in which the data will be sent. Each message type will require its own TX Header, with a unique identifier. This allows the receiver to filter for only the message types that it is interested in. It is important that these settings match what was defined in the peripheral intialization:
