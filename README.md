@@ -4,3 +4,4 @@ Repository for playing around with the various features of the STM32H7 MCU.
 The projects in this repo are:
 
 * **Internal Temperature Sensor:** The STM32H7 has an embedded temperature sensor. This project tests how to interface with it and get accurate temperature readings.
+* **CAN Interface:** Testing communication between two STM32H7's using the CAN interface with no transceiver. 
